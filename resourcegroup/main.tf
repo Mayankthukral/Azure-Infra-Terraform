@@ -1,0 +1,31 @@
+# Configure the Azure provider
+
+#terraform block
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0.2"
+    }
+  }
+
+  required_version = ">= 1.1.0"
+}
+
+#provider block
+provider "azurerm" {
+  features {}
+}
+
+
+#Actuall resource block
+resource "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
+  location = "westus2"
+
+
+  tags = {
+    Environment = "Terraform Getting Started"
+    Team        = "DevOps"
+  }
+}
