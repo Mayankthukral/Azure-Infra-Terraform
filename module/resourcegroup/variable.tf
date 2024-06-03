@@ -1,5 +1,10 @@
 
 #variable
 variable "resource_group_name" {
-  default = "myTFResourceGroup"
+  default = "sample"
+}
+
+variable "resource_group_location" {
+   default = "westus2"
+  
 }
