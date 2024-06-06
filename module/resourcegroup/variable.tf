@@ -1,7 +1,7 @@
 
 #variable
 variable "resource_group_name" {
-  default = "sample"
+  default = "sampleresourcegroup"
 }
 
 variable "resource_group_location" {
