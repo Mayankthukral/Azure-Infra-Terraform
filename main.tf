@@ -16,6 +16,6 @@ module"storageaccount"{
     source = "./module/storageaccount"
     storage_resourcegroup_location = module.resourcegroup.inmodule_resource_group_location
     storage_resourcegroup_name = module.resourcegroup.inmodule_resource_group_name
-    storage_account_name = "Storage1"
+    storage_account_name = "storage17833"
 
 }
