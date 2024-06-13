@@ -1,6 +1,5 @@
 output "inmodule_resource_group_id" {
   value = azurerm_resource_group.rg.id
-  sensitive = true
 }
 
 output "inmodule_resource_group_location"{
