@@ -56,6 +56,24 @@ module "network_interface_security_group_association"{
 
 # Vm Scale set module
 
-
-
+module "VM_scale_set"{
+    source = "./module/VM_Scale_Set"
+    VM_scale_set_name = var.env_VM_scale_set_name
+    VM_scale_set_resourcegroup_name = module.resourcegroup.inmodule_resource_group_name
+    VM_scale_set_resourcegroup_location = module.resourcegroup.inmodule_resource_group_location
+    VM_scale_set_sshkey = var.env_VM_scale_set_sshkey
+    admin_ssh_key_name = var.env_admin_ssh_key_name
+    VM_scale_set_ip_subnet_id = module.subnet.module_subnet_id
+    VM_scale_set_autoscale_setting_name =var.env_VM_scale_set_autoscale_setting_name
+    VM_scale_set_autoscale_setting_resourcegroup_name = module.resourcegroup.inmodule_resource_group_name
+    VM_scale_set_autoscale_setting_resourcegroup_location = module.resourcegroup.inmodule_resource_group_location
+    VM_scale_set_autoscale_setting_target_resource_id = module.VM_scale_set.module_vmScaleset_ID
+    autoscale_vm_initial_count =  var.env_autoscale_vm_initial_count
+    autoscale_vm_maximum_count =  var.env_autoscale_vm_maximum_count
+    autoscale_rule_Increased_CPU_Percentage = var.env_autoscale_rule_Increased_CPU_Percentage
+    autoscale_rule_Increased_CPU_Percentage_additionalVMs = var.env_autoscale_rule_Increased_CPU_Percentage_additionalVMs
+    autoscale_rule_Increased_CPU_Percentage_cooldownTime =  var.env_autoscale_rule_Increased_CPU_Percentage_cooldownTime
+    autoscale_rule_Decreased_CPU_Percentage = var.env_autoscale_rule_Decreased_CPU_Percentage
+    autoscale_rule_Decreased_CPU_Percentage_cooldownTime = var.env_autoscale_rule_Decreased_CPU_Percentage_cooldownTime
+}
 
