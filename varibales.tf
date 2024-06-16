@@ -50,3 +50,27 @@ variable "password" {
 variable "env_nsg_name" {
   
 }
+
+# VM scale Set Variables 
+
+variable "env_VM_scale_set_name" { }
+
+variable "env_VM_scale_set_sshkey" { }
+
+variable "env_admin_ssh_key_name" { }
+
+variable "env_VM_scale_set_autoscale_setting_name" { }
+
+variable "env_autoscale_vm_initial_count" { }
+
+variable "env_autoscale_vm_maximum_count" { }
+
+variable "env_autoscale_rule_Increased_CPU_Percentage" { }
+
+variable "env_autoscale_rule_Increased_CPU_Percentage_additionalVMs" { }
+
+variable "env_autoscale_rule_Increased_CPU_Percentage_cooldownTime" { }
+
+variable "env_autoscale_rule_Decreased_CPU_Percentage" { }
+
+variable "env_autoscale_rule_Decreased_CPU_Percentage_cooldownTime" { }
