@@ -1,8 +1,8 @@
 
 resource "azurerm_linux_virtual_machine_scale_set" "example" {
-  name                = "example-vmss"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+  name                = var.VM_scale_set_name
+  resource_group_name = var.VM_scale_set_resourcegroup_name
+  location            = var.VM_scale_set_resourcegroup_location
   sku                 = "Standard_F2"
   instances           = 1
   admin_username      = "adminuser"
@@ -31,7 +31,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
     ip_configuration {
       name      = "internal"
       primary   = true
-      subnet_id = var.VM_scale_set_ip_subnet
+      subnet_id = var.VM_scale_set_ip_subnet_id
     }
   }
 }
