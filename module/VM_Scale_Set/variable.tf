@@ -2,14 +2,17 @@ variable "VM_scale_set_name" {
   default = "Sample_Scale_set"
 }
 
-variable "VM_scale_set_resourcegroup" {
+variable "VM_scale_set_resourcegroup_name" {
   default = "sampleresourcegroup"
 }
 
-variable "VM_scale_set_location" {
+variable "VM_scale_set_resourcegroup_location" {
   default = "uswest2"
 }
 
+variable "admin_ssh_key_name" {
+  default = "myAdmin"
+}
 variable "VM_scale_set_sshkey" {
   
 }
@@ -18,7 +21,7 @@ variable "admin_ssh_key_name" {
   default = "myAdmin"
 }
 
-variable "VM_scale_set_ip_subnet" {
+variable "VM_scale_set_ip_subnet_id" {
     default = "samplesubnet"
   
 }
