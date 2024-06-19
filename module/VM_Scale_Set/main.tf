@@ -1,4 +1,15 @@
 
+data "azurerm_ssh_public_key" "SshPublicKey" {
+  name                = "scaleset"
+  resource_group_name = "DefaultResourceGroup-EUS"
+}
+
+output "SshPublicKey" {
+  value = data.azurerm_ssh_public_key.SshPublicKey.public_key 
+  sensitive = true
+}
+
+
 resource "azurerm_linux_virtual_machine_scale_set" "example" {
   name                = var.VM_scale_set_name
   resource_group_name = var.VM_scale_set_resourcegroup_name
