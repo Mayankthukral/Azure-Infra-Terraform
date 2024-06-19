@@ -16,11 +16,11 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
   location            = var.VM_scale_set_resourcegroup_location
   sku                 = "Standard_F2"
   instances           = 1
-  admin_username      = "adminuser"
 
+  admin_username      = "adminuser"
   admin_ssh_key {
-    username   = var.admin_ssh_key_name
-    public_key = var.VM_scale_set_sshkey
+    username   = "adminuser"
+    public_key = data.azurerm_ssh_public_key.SshPublicKey.public_key
   }
 
   source_image_reference {
@@ -64,7 +64,7 @@ resource "azurerm_monitor_autoscale_setting" "example" {
 
     rule {
       metric_trigger {
-        metric_name        = "Increased CPU Percentage"
+        metric_name        = "Percentage CPU"
         metric_resource_id = azurerm_linux_virtual_machine_scale_set.example.id
         time_grain         = "PT1M" # determines how often the system checks for metric
         statistic          = "Average" #Specifies how the metrics from multiple instances are combined
@@ -90,7 +90,7 @@ resource "azurerm_monitor_autoscale_setting" "example" {
 
     rule {
       metric_trigger {
-        metric_name        = "Decreased CPU Percentage"
+        metric_name        = "Percentage CPU"
         metric_resource_id = azurerm_linux_virtual_machine_scale_set.example.id
         time_grain         = "PT1M"
         statistic          = "Average"
@@ -109,16 +109,6 @@ resource "azurerm_monitor_autoscale_setting" "example" {
     }
   }
 
-  predictive {
-    scale_mode      = "Enabled"
-    look_ahead_time = "PT5M"
-  }
 
-  notification {
-    email {
-      send_to_subscription_administrator    = true
-      send_to_subscription_co_administrator = true
-      custom_emails                         = ["mayankthukral1810@gmail.com"]
-    }
-  }
+  
 }
