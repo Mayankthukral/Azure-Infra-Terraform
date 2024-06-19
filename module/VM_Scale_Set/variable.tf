@@ -13,16 +13,10 @@ variable "VM_scale_set_resourcegroup_location" {
 variable "admin_ssh_key_name" {
   default = "myAdmin"
 }
-variable "VM_scale_set_sshkey" {
-  
-}
 
-variable "admin_ssh_key_name" {
-  default = "myAdmin"
-}
+
 
 variable "VM_scale_set_ip_subnet_id" {
-    default = "samplesubnet"
   
 }
 

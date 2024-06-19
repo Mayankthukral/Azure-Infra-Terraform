@@ -17,7 +17,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
   sku                 = "Standard_F2"
   instances           = 1
 
-  admin_username      = "adminuser"
+admin_username      = "adminuser"
   admin_ssh_key {
     username   = "adminuser"
     public_key = data.azurerm_ssh_public_key.SshPublicKey.public_key
