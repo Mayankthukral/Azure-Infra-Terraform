@@ -8,11 +8,20 @@ variable "virtual_network_name" {
     default = "samplevnet"
 }
 
-variable "subnet_name" {
-    type = string
-    default = "sampleSubnet"
-}
+variable "subnets" {
+  type = map(object({
+    address_prefix     = string
+    name               = string
+  }))
 
-variable "address_prefixes" {
-    default = ["10.0.0.0/16"]
+  default = {
+    subnet1 = {
+      address_prefix = "10.0.1.0/24"
+      name           = "VM_scaleset_subnet"
+    }
+    subnet2 = {
+      address_prefix = "10.0.2.0/24"
+      name           = "app_gateway_subnet"
+    }
+  }
 }
